@@ -9,9 +9,6 @@ class WashRecordsController < ApplicationController
 
   def create
     @wash_record = current_user.wash_records.build(wash_record_params)
-    if discount_requirements.include? @wash_record.license_plate
-      @wash_record.amount_charged = @wash_record.amount_charged / 2
-    end
     if @wash_record.save
       flash[:success] = "Wash record has been submitted. Car wash will be initiated momentarily"
       redirect_to new_wash_record_path
