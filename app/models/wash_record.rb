@@ -33,7 +33,7 @@ class WashRecord < ActiveRecord::Base
   end
   def validate_license_plate
     if self.license_plate == "1111111"
-      errors.add(:license_plate, "Is stolen! Please decline customer and call 911")
+      errors.add(:license_plate, " ERROR! Car Is stolen! Please decline customer and call 911")
     end
   end
 end
