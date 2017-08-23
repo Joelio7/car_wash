@@ -1,0 +1,17 @@
+<div class="car-wash-info">
+  <h1> Wash Tech </h1>
+  <h3> The future of car washing </h3>
+</div>
+<div class="sign-in" style="text-align:center;">
+<h5>Please Log in</h5>
+<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %>
+  <% end -%>
+    <%= f.submit "Log in" %>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>

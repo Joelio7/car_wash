@@ -1,0 +1,25 @@
+<div class="car-wash-info">
+  <h1> Wash Tech </h1>
+  <h3> The future of car washing </h3>
+  <p> Please gather info from the customer's vehicle and initiate car wash </p>
+</div>
+<div class="wash-form">
+<%= bootstrap_form_for(@wash_record) do |f| %>
+  <%= f.form_group :vehicle_type, label: { text: "Vehicle Type" }, :class => "vehicle-type" do %>
+    <%= f.radio_button :vehicle_type, "Car", label: "Car",:onclick => "hideTruckQuestions()" %>
+    <%= f.radio_button :vehicle_type, "Truck", label: "Truck",:onclick => "showTruckQuestions()" %>
+  <% end %>
+  <%= f.text_field :license_plate, label: {text: "License Plate Number"} %>
+  <div id="trucks"style="display:none;">
+  <%= f.form_group :bed_down, label: { text: "Is the Bed Down" } do %>
+    <%= f.radio_button :bed_down, false, label: "False" %>
+  <% end %>
+  <%= f.form_group :muddy_bed, label: { text: "Is the Bed Muddy?" } do %>
+    <%= f.radio_button :muddy_bed, true, label: "True", :class =>"muddy-truck-select" %>
+    <%= f.radio_button :muddy_bed, false, label: "False", :class =>"muddy-truck-select" %>
+  <% end %>
+</div>
+  <%= f.hidden_field :amount_charged, :id => 'amount-charged' , :value => 5 %>
+  <%= f.primary "Begin Wash" %>
+<% end %>
+</div>
