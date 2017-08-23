@@ -27,7 +27,7 @@ class WashRecord < ActiveRecord::Base
     end
   end
   def truck_bed_validation
-    if self.vehicle_type == "Truck" && self.bed_down != "false"
+    if self.vehicle_type == "Truck" && self.bed_down != false
       errors.add(:bed_down, "Must be false to continue")
     end
   end
